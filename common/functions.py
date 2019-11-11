@@ -17,6 +17,13 @@ def mean_squared_error(y, t):
     return 0.5 * np.sum((y-t)**2)
 
 def cross_entropy_error(y, t):
+
+    '''
+    print("input y is: ", y)
+    print("input t is: ", t)
+    print("y.ndim is: ", y.ndim)
+    '''
+    
     if y.ndim == 1:
         t = t.reshape(1, t.size)
         y = y.reshape(1, y.size)
@@ -27,5 +34,17 @@ def cross_entropy_error(y, t):
 
     delta = 1e-7
     batch_size = y.shape[0]
+
+    '''
+    print("t.size is: ", t.size)
+    print("batch size (y.shape[0]) is: ", batch_size)
+    print("np.arange(batch_size) is: ", np.arange(batch_size))
+    print("t now is: ", t)
+    temp1 = y[np.arange(batch_size), t]
+    print("y[np.arange(batch_size), t] is: ", temp1)
+    temp2 = np.log(temp1 + delta)
+    print("np.log(temp1 + delta) is ", temp2)
+    '''
+
     return -np.sum(np.log(y[np.arange(batch_size), t] + delta)) / batch_size
 

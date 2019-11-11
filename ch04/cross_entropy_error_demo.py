@@ -9,3 +9,9 @@ y = [0.1, 0.05, 0.6, 0.0, 0.05, 0.1]
 
 error = cross_entropy_error(np.array(y), np.array(t))
 print(error)
+
+t = [0, 0, 0, 1]
+y = [0.8, 1]
+
+error = cross_entropy_error(np.array(y), np.array(t))
+print(error)
