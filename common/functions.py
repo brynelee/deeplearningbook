@@ -16,6 +16,9 @@ def softmax(x):
 def mean_squared_error(y, t):
     return 0.5 * np.sum((y-t)**2)
 
+
+# y是预测结果，y.shape[0]代表多少组结果，应该和t的shape一致（与y的行数y.shape[0]一致)
+# t是标签，t.size应该是1，如果不是1，则t的标签是one-hot形式的，可以使用t.argmax(axis=1)来获取结果
 def cross_entropy_error(y, t):
 
     '''
@@ -23,7 +26,7 @@ def cross_entropy_error(y, t):
     print("input t is: ", t)
     print("y.ndim is: ", y.ndim)
     '''
-    
+
     if y.ndim == 1:
         t = t.reshape(1, t.size)
         y = y.reshape(1, y.size)
